@@ -260,6 +260,41 @@ Run before every commit:
 4. **Compare** — What's different between working and broken?
 5. **Root cause** — Fix the actual problem, not symptoms
 
+### Bug Fixing Protocol
+
+> **When the user reports a bug, don't start by trying to fix it.**
+
+**The process:**
+
+1. **Write a test first** — Create a failing test that reproduces the bug
+2. **Verify it fails** — Run the test to confirm it captures the bug
+3. **Fix the bug** — Use subagents if needed to explore solutions
+4. **Prove it's fixed** — The test must pass
+5. **Commit both** — Test and fix go together
+
+```bash
+# Example workflow
+# 1. Write test that reproduces the bug
+# 2. Run test - should FAIL
+npm test -- --grep "bug description"
+
+# 3. Fix the code
+# 4. Run test - should PASS
+npm test -- --grep "bug description"
+
+# 5. Commit
+git commit -m "fix(scope): description
+
+- Added test to reproduce issue
+- Fixed by [explanation]"
+```
+
+**Why this works:**
+- Proves you understand the bug
+- Prevents regression
+- Documents expected behavior
+- Gives confidence the fix actually works
+
 ---
 
 ## Git Quick Reference
