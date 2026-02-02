@@ -1,0 +1,102 @@
+# [Project Name]
+
+> **Status**: Active
+> **Last Updated**: YYYY-MM-DD
+
+---
+
+## Purpose
+
+What problem does this solve? Why does it exist?
+
+[1-2 paragraphs explaining the core value proposition]
+
+---
+
+## Goals
+
+- [ ] Primary goal 1
+- [ ] Primary goal 2
+- [ ] Primary goal 3
+
+---
+
+## Tech Stack
+
+| Technology | Purpose | Why Chosen |
+|------------|---------|------------|
+| [Language] | Runtime | [Reason] |
+| [Framework] | Web framework | [Reason] |
+| [Database] | Data storage | [Reason] |
+| [Cache] | Caching | [Reason] |
+
+---
+
+## Architecture Overview
+
+[Brief description - link to ARCHITECTURE.md for details]
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Client    │────▶│   Server    │────▶│  Database   │
+└─────────────┘     └─────────────┘     └─────────────┘
+```
+
+---
+
+## Quick Start
+
+```bash
+# Clone
+git clone <repo-url>
+cd [project-name]
+
+# Setup
+cp .env.example .env
+# Edit .env with your credentials
+
+# Install & Run
+[install command]
+[run command]
+```
+
+See [SETUP.md](SETUP.md) for detailed setup instructions.
+
+---
+
+## Project Structure
+
+```
+/
+├── src/                 # Application source code
+├── tests/               # Test files
+├── docs/                # Documentation
+│   ├── PROJECT.md       # This file
+│   ├── ARCHITECTURE.md  # System design
+│   ├── SETUP.md         # Environment setup
+│   ├── DECISIONS.md     # Architecture decisions
+│   ├── CHANGELOG.md     # Version history
+│   ├── tasks/           # Task tracking
+│   └── notes/           # Learning notes
+├── .cursor/rules/       # AI rules
+├── .env.example         # Environment template
+└── README.md            # Quick start
+```
+
+---
+
+## Team
+
+| Role | Name | Contact |
+|------|------|---------|
+| Owner | [Name] | [email] |
+| Dev | [Name] | [email] |
+
+---
+
+## Links
+
+- **Repository**: [URL]
+- **Production**: [URL]
+- **Staging**: [URL]
+- **CI/CD**: [URL]

@@ -1,0 +1,244 @@
+# Environment Setup
+
+> **Last Updated**: YYYY-MM-DD
+
+---
+
+## Prerequisites
+
+### Required
+
+- [ ] [Language/Runtime] v[version]+
+- [ ] [Package Manager] v[version]+
+- [ ] [Database] v[version]+
+- [ ] Git
+
+### Optional
+
+- [ ] Docker & Docker Compose
+- [ ] [IDE/Editor]
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone the repository
+git clone [repo-url]
+cd [project-name]
+
+# 2. Copy environment file
+cp .env.example .env
+
+# 3. Edit .env with your credentials
+# Get credentials from: ~/.cursor/credentials/UNIVERSAL_ACCESS.md
+
+# 4. Install dependencies
+[install command]
+
+# 5. Setup database
+[database setup command]
+
+# 6. Run the application
+[run command]
+```
+
+---
+
+## Detailed Setup
+
+### 1. Environment Variables
+
+Copy `.env.example` to `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Required variables:
+
+| Variable | Description | How to Get |
+|----------|-------------|------------|
+| `DATABASE_URL` | Database connection | See below |
+| `API_KEY` | External API key | 1Password: "Item Name" |
+
+### 2. Database Setup
+
+**Local (Development)**:
+
+```bash
+# Using Docker
+docker-compose up -d db
+
+# Or local installation
+[database create command]
+```
+
+**Run Migrations**:
+
+```bash
+[migration command]
+```
+
+**Seed Data** (optional):
+
+```bash
+[seed command]
+```
+
+### 3. Install Dependencies
+
+```bash
+# [Language-specific install]
+npm install          # Node.js
+pip install -r requirements.txt  # Python
+composer install     # PHP
+```
+
+### 4. Verify Setup
+
+```bash
+# Run tests
+[test command]
+
+# Start development server
+[dev command]
+
+# Visit http://localhost:[port]
+```
+
+---
+
+## Docker Setup
+
+### Using Docker Compose
+
+```bash
+# Start all services
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
+### Building Manually
+
+```bash
+docker build -t [project-name] .
+docker run -p [port]:[port] [project-name]
+```
+
+---
+
+## IDE Setup
+
+### VS Code / Cursor
+
+Recommended extensions:
+- [Extension 1]
+- [Extension 2]
+- [Extension 3]
+
+Settings (`.vscode/settings.json`):
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "[formatter]"
+}
+```
+
+---
+
+## Common Issues
+
+### Issue: [Problem Description]
+
+**Symptoms**: What you see
+
+**Solution**:
+```bash
+[fix command]
+```
+
+### Issue: Database Connection Failed
+
+**Symptoms**: Cannot connect to database
+
+**Solution**:
+1. Check database is running
+2. Verify `DATABASE_URL` in `.env`
+3. Check network/firewall settings
+
+### Issue: Missing Environment Variables
+
+**Symptoms**: App crashes on start with "undefined" errors
+
+**Solution**:
+1. Ensure `.env` exists
+2. Compare with `.env.example` for missing vars
+3. Restart the application
+
+---
+
+## Getting Credentials
+
+For any credentials needed, refer to:
+
+```
+~/.cursor/credentials/UNIVERSAL_ACCESS.md
+```
+
+Use 1Password CLI:
+
+```bash
+# Authenticate
+eval $(op signin)
+
+# Get a credential
+op item get "Item Name" --vault Cursor --fields credential
+```
+
+---
+
+## Development Workflow
+
+### Starting Development
+
+```bash
+# 1. Pull latest changes
+git pull origin main
+
+# 2. Install any new dependencies
+[install command]
+
+# 3. Run migrations
+[migrate command]
+
+# 4. Start dev server
+[dev command]
+```
+
+### Before Committing
+
+```bash
+# Run linter
+[lint command]
+
+# Run tests
+[test command]
+
+# Format code
+[format command]
+```
+
+---
+
+## Additional Resources
+
+- [Documentation link]
+- [API reference]
+- [Team wiki]

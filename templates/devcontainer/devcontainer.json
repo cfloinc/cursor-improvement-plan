@@ -1,0 +1,63 @@
+{
+  "name": "[Project Name] Dev Container",
+  
+  // Use Docker Compose for multi-service setups
+  // "dockerComposeFile": "../docker-compose.yml",
+  // "service": "app",
+  // "workspaceFolder": "/workspace",
+  
+  // Or use a single image
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  
+  // Features to add
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+    // Uncomment as needed:
+    // "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    // "ghcr.io/devcontainers/features/python:1": { "version": "3.11" },
+    // "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    // "ghcr.io/devcontainers/features/aws-cli:1": {}
+  },
+  
+  // VS Code settings
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+      },
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "usernamehw.errorlens"
+        // Add language-specific extensions
+      ]
+    }
+  },
+  
+  // Forward ports
+  "forwardPorts": [3000, 5432],
+  
+  // Run after container is created
+  "postCreateCommand": "echo 'Dev container ready!'",
+  
+  // Run after container starts
+  "postStartCommand": "",
+  
+  // Environment variables
+  "remoteEnv": {
+    "NODE_ENV": "development"
+  },
+  
+  // Mount local directories (optional)
+  "mounts": [
+    // Mount SSH keys for Git
+    "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,readonly"
+  ],
+  
+  // User to run as
+  "remoteUser": "vscode"
+}

@@ -1,0 +1,190 @@
+# Architecture
+
+> **Last Updated**: YYYY-MM-DD
+
+---
+
+## System Overview
+
+[High-level description of the system architecture]
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                        [Project Name]                        │
+├──────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌─────────┐     ┌─────────┐     ┌─────────┐                │
+│  │ Client  │────▶│   API   │────▶│   DB    │                │
+│  └─────────┘     └─────────┘     └─────────┘                │
+│                       │                                      │
+│                       ▼                                      │
+│                 ┌─────────┐                                  │
+│                 │ Cache   │                                  │
+│                 └─────────┘                                  │
+│                                                              │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Components
+
+### Component A: [Name]
+
+**Purpose**: What this component does
+
+**Location**: `src/[path]`
+
+**Dependencies**:
+- [Dependency 1]
+- [Dependency 2]
+
+**Key Files**:
+- `file1.ts` - Description
+- `file2.ts` - Description
+
+### Component B: [Name]
+
+**Purpose**: What this component does
+
+**Location**: `src/[path]`
+
+**Dependencies**:
+- [Dependency 1]
+
+---
+
+## Data Flow
+
+### Request Flow
+
+1. Client sends request to API endpoint
+2. Middleware validates authentication
+3. Controller processes request
+4. Service layer executes business logic
+5. Repository interacts with database
+6. Response returned to client
+
+### Key Data Models
+
+```
+User
+├── id: UUID
+├── email: string
+├── name: string
+└── created_at: timestamp
+
+[Model 2]
+├── field1
+└── field2
+```
+
+---
+
+## Integration Points
+
+### External APIs
+
+| Service | Purpose | Auth Method |
+|---------|---------|-------------|
+| [Service 1] | [Purpose] | API Key |
+| [Service 2] | [Purpose] | OAuth |
+
+### Internal Services
+
+| Service | Protocol | Port |
+|---------|----------|------|
+| API | HTTP | 3000 |
+| Database | TCP | 5432 |
+
+---
+
+## Security Considerations
+
+### Authentication
+
+- [Authentication method used]
+- [Token/session management approach]
+
+### Authorization
+
+- [Role-based access control]
+- [Permission model]
+
+### Data Protection
+
+- [Encryption at rest]
+- [Encryption in transit]
+- [Sensitive data handling]
+
+---
+
+## Performance Considerations
+
+### Caching Strategy
+
+- [What is cached]
+- [Cache invalidation approach]
+- [TTL settings]
+
+### Database Optimization
+
+- [Indexes]
+- [Query optimization]
+- [Connection pooling]
+
+### Known Bottlenecks
+
+- [Bottleneck 1 and mitigation]
+- [Bottleneck 2 and mitigation]
+
+---
+
+## Deployment
+
+### Environments
+
+| Environment | URL | Purpose |
+|-------------|-----|---------|
+| Development | localhost | Local dev |
+| Staging | [URL] | Testing |
+| Production | [URL] | Live |
+
+### Infrastructure
+
+- [Cloud provider]
+- [Container orchestration]
+- [CI/CD pipeline]
+
+---
+
+## Monitoring & Observability
+
+### Logging
+
+- [Logging approach]
+- [Log aggregation tool]
+
+### Metrics
+
+- [Key metrics tracked]
+- [Alerting thresholds]
+
+### Health Checks
+
+- [Health check endpoints]
+- [Uptime monitoring]
+
+---
+
+## Disaster Recovery
+
+### Backup Strategy
+
+- [Backup frequency]
+- [Retention policy]
+
+### Recovery Procedures
+
+- [RTO/RPO targets]
+- [Recovery steps]

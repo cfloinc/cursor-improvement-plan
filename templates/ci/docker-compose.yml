@@ -1,0 +1,118 @@
+# Docker Compose for local development
+# Copy to project root as docker-compose.yml
+
+version: '3.8'
+
+services:
+  # =============================================================================
+  # Application (uncomment and customize for your stack)
+  # =============================================================================
+  
+  # Node.js App
+  # app:
+  #   build: .
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - NODE_ENV=development
+  #     - DATABASE_URL=postgresql://postgres:postgres@db:5432/app
+  #   depends_on:
+  #     - db
+  #   command: npm run dev
+
+  # Python App
+  # app:
+  #   build: .
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - .:/app
+  #   environment:
+  #     - DATABASE_URL=postgresql://postgres:postgres@db:5432/app
+  #   depends_on:
+  #     - db
+  #   command: uvicorn src.main:app --host 0.0.0.0 --reload
+
+  # =============================================================================
+  # Database
+  # =============================================================================
+  
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # MySQL alternative
+  # db:
+  #   image: mysql:8
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: root
+  #     MYSQL_DATABASE: app
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+
+  # =============================================================================
+  # Cache
+  # =============================================================================
+  
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # =============================================================================
+  # Admin Tools (optional)
+  # =============================================================================
+  
+  # pgAdmin for PostgreSQL
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - "5050:80"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@admin.com
+  #     PGADMIN_DEFAULT_PASSWORD: admin
+  #   depends_on:
+  #     - db
+
+  # Redis Commander
+  # redis-commander:
+  #   image: rediscommander/redis-commander
+  #   ports:
+  #     - "8081:8081"
+  #   environment:
+  #     - REDIS_HOSTS=local:redis:6379
+  #   depends_on:
+  #     - redis
+
+volumes:
+  postgres_data:
+  # mysql_data:
+  redis_data:
+
+networks:
+  default:
+    name: app-network

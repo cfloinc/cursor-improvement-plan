@@ -1,0 +1,71 @@
+# Architecture Decision Records
+
+> Record significant technical decisions and their context.
+
+---
+
+## Template
+
+When adding a new decision, copy this template:
+
+```markdown
+## [YYYY-MM-DD] Decision Title
+
+**Status**: Proposed | Accepted | Deprecated | Superseded
+
+**Context**: What situation required a decision?
+
+**Options Considered**:
+
+1. **Option A**: Description
+   - Pro: benefit
+   - Con: drawback
+
+2. **Option B**: Description
+   - Pro: benefit
+   - Con: drawback
+
+**Decision**: [Chosen option]
+
+**Rationale**: Why this option best fits our needs.
+
+**Consequences**: What this enables or constrains going forward.
+```
+
+---
+
+## Decisions
+
+### [YYYY-MM-DD] Example: Database Selection
+
+**Status**: Accepted
+
+**Context**: Need to choose a database for the application. Expected data volume is moderate, with complex relationships between entities.
+
+**Options Considered**:
+
+1. **PostgreSQL**
+   - Pro: ACID compliance, excellent for complex queries, JSON support
+   - Pro: Strong community, well-documented
+   - Con: More complex setup than SQLite
+
+2. **MySQL**
+   - Pro: Widely used, good performance
+   - Con: Less feature-rich than PostgreSQL
+
+3. **MongoDB**
+   - Pro: Flexible schema, good for rapid iteration
+   - Con: Not ideal for relational data, eventual consistency concerns
+
+**Decision**: PostgreSQL
+
+**Rationale**: Our data model has clear relationships that benefit from a relational database. PostgreSQL's JSON support gives us flexibility where needed, and its ACID compliance ensures data integrity.
+
+**Consequences**: 
+- Need PostgreSQL in development and production
+- Can use advanced features like CTEs and window functions
+- Team needs PostgreSQL knowledge
+
+---
+
+<!-- Add new decisions below this line -->

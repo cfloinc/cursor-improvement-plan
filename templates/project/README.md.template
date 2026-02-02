@@ -1,0 +1,66 @@
+# [Project Name]
+
+[One-line description of what this project does]
+
+---
+
+## Quick Start
+
+```bash
+# Clone
+git clone [repo-url]
+cd [project-name]
+
+# Setup
+cp .env.example .env
+# Edit .env with your values
+
+# Install
+[install command]
+
+# Run
+[run command]
+```
+
+---
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [docs/PROJECT.md](docs/PROJECT.md) | Project overview and goals |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System design |
+| [docs/SETUP.md](docs/SETUP.md) | Detailed setup guide |
+| [docs/CHANGELOG.md](docs/CHANGELOG.md) | Version history |
+
+---
+
+## Development
+
+```bash
+# Run in development mode
+[dev command]
+
+# Run tests
+[test command]
+
+# Run linter
+[lint command]
+```
+
+---
+
+## Contributing
+
+1. Create a feature branch: `git checkout -b feature/my-feature`
+2. Make your changes
+3. Run tests: `[test command]`
+4. Commit: `git commit -m "feat: add my feature"`
+5. Push: `git push origin feature/my-feature`
+6. Open a Pull Request
+
+---
+
+## License
+
+[License type]
