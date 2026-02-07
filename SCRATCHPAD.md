@@ -1,8 +1,11 @@
-# Scratchpad: Agent Self-Learning Log
+# SCRATCHPAD -- Agent Self-Learning Log
 
-> **Purpose**: Track agent mistakes, user corrections, what works, what doesn't, and user preferences so the agent improves over time.
+> **Purpose**: Track agent mistakes, user corrections, what worked, what didn't,
+> and user preferences so the agent improves over time.
 >
-> **Important**: This is NOT a replacement for `AGENT.md`. `AGENT.md` is the system-of-record for hosts, secrets, services, infrastructure, and project context. The scratchpad is strictly for tracking agent learning and improvement.
+> **This is NOT a replacement for AGENT.md.** AGENT.md is the system-of-record
+> for hosts, secrets, services, infrastructure, and project context. The
+> scratchpad is strictly for learning and behavioral improvement.
 >
 > **Update this file at the end of every session.**
 
@@ -10,28 +13,30 @@
 
 ## Quick Reference (TL;DR)
 
-> Read this first at the start of every session. Start empty; populate as sessions accumulate.
+> Read this first at the start of every session. The most important current
+> preferences and corrections, distilled from the session log.
 
-<!-- Populate with the most important current preferences and corrections -->
+*(Empty -- populate as sessions accumulate.)*
 
 ---
 
 ## Session Start Checklist
 
-Run through this checklist at the beginning of each session:
+Run through this at the beginning of each session:
 
 - [ ] Read this scratchpad (especially Quick Reference and Active Rules)
 - [ ] Read AGENT.md for current project context
-- [ ] Check Active Rules — am I following them?
-- [ ] Check Open Questions — anything relevant to this session?
+- [ ] Check Active Rules -- am I following them?
+- [ ] Check Open Questions -- anything relevant to this session?
 
 ---
 
 ## Session Count
 
-| Total Sessions | Last Updated |
-|----------------|--------------|
-| 0 | — |
+| Metric | Value |
+|--------|-------|
+| Total sessions logged | 0 |
+| Last updated | -- |
 
 ---
 
@@ -39,50 +44,67 @@ Run through this checklist at the beginning of each session:
 
 > Append newest entries at the top.
 
-<!-- Each entry format:
-### Session [N] — [Date]
+*(No sessions logged yet.)*
 
-**Context**: [what the session was about]
+<!-- Template for new entries (copy this block and fill in):
 
-**What I got wrong**: [mistakes the agent made]
+### Session [N] -- YYYY-MM-DD
 
-**What you corrected**: [explicit corrections from the user]
+**Context**: What this session was about.
 
-**What worked**: [tools, approaches, or outputs that succeeded]
+**What I got wrong**:
+-
 
-**What didn't**: [things that failed or were unhelpful]
+**What you corrected**:
+-
 
-**What you liked**: [positive feedback from the user]
+**What worked**:
+-
 
-**Actionable changes for next session**: [concrete takeaways]
+**What didn't**:
+-
+
+**What you liked**:
+-
+
+**Actionable changes for next session**:
+-
+
 -->
 
 ---
 
-## Preferences and Corrections (Rolling)
+## Preferences and Corrections (rolling)
 
-> Merged, deduplicated list of recurring user preferences and corrections extracted from the session log. Keep this concise.
+> Merged, deduplicated list of recurring user preferences and corrections
+> extracted from the session log. Keep this concise.
 
-<!-- Populate from session log entries -->
-
----
-
-## What You Like (Rolling)
-
-> Track positive signals separately so the agent knows what behaviors to repeat.
-
-<!-- Populate from session log entries -->
+*(Empty -- populate from session log entries.)*
 
 ---
 
-## Mistake Patterns (Rolling)
+## What You Like (rolling)
 
-> Summarize recurring mistakes with pattern description, root cause, and mitigation strategy.
+> Positive signals tracked separately so the agent knows what behaviors to
+> repeat.
 
-<!-- Format:
-- **[Pattern Name]** `[freq: N] [severity: low/med/high]`
-  - Root cause: [why this happens]
-  - Mitigation: [how to prevent]
+*(Empty -- populate from session log entries.)*
+
+---
+
+## Mistake Patterns (rolling)
+
+> Recurring mistakes summarized with frequency, severity, root cause, and
+> mitigation.
+
+*(No patterns identified yet.)*
+
+<!-- Template for new patterns:
+
+| Pattern | Freq | Severity | Root Cause | Mitigation |
+|---------|------|----------|------------|------------|
+| [description] | [N] | low/med/high | [why it happens] | [how to prevent it] |
+
 -->
 
 ---
@@ -91,55 +113,45 @@ Run through this checklist at the beginning of each session:
 
 > Parking lot for unresolved items to watch for across sessions.
 
-<!-- Add questions that need answers or clarification -->
+*(None yet.)*
 
 ---
 
-## Learning Framework (Self-Updating)
+## Learning Framework (self-updating)
 
-> 5-step process for continuous improvement:
+Apply this 5-step process during each scratchpad update:
 
-### 1. Observe
-Collect concrete examples from the session log.
-
-### 2. Classify
-Tag each as one of:
-- Requirement miss
-- Assumption error
-- Tool misuse
-- Output format mismatch
-- Scope overreach
-- Under-communication
-- Over-communication
-- Other
-
-### 3. Decide
-Pick 1-3 specific, testable changes to reduce repeats.
-
-### 4. Apply
-Use the changes in the next session.
-
-### 5. Review
-Check if the changes reduced errors; revise if not.
+1. **Observe** -- Collect concrete examples from the session log.
+2. **Classify** -- Tag each as one of:
+   - requirement miss
+   - assumption error
+   - tool misuse
+   - output format mismatch
+   - scope overreach
+   - under-communication
+   - over-communication
+   - other
+3. **Decide** -- Pick 1-3 specific, testable changes to reduce repeats.
+4. **Apply** -- Use the changes in the next session.
+5. **Review** -- Check if the changes reduced errors; revise if not.
 
 ---
 
-## Active Rules (Current Period)
+## Active Rules (current period)
 
-> The 1-3 concrete behavior rules currently in effect, decided from the framework. Review and rotate regularly. Start empty.
+> The 1-3 concrete behavior rules currently in effect, decided from the
+> framework above. Review and rotate regularly.
 
-<!-- Format:
-1. [Specific, testable rule]
-2. [Specific, testable rule]
-3. [Specific, testable rule]
--->
+*(No active rules yet -- will be populated after first session review.)*
 
 ---
 
 ## Review Log
 
-| Rule | Added Date | Last Reviewed | Status |
-|------|------------|---------------|--------|
-| — | — | — | — |
+> Track each Active Rule's lifecycle.
 
-**Status values**: `new` / `working` / `revised` / `retired`
+| Rule | Added | Last Reviewed | Status |
+|------|-------|---------------|--------|
+| *(none yet)* | -- | -- | -- |
+
+<!-- Status values: new / working / revised / retired -->

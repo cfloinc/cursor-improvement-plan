@@ -37,17 +37,17 @@ print_header() {
 
 check_pass() {
     echo -e "${GREEN}✓${NC} $1"
-    ((PASS++))
+    ((++PASS))
 }
 
 check_warn() {
     echo -e "${YELLOW}⚠${NC} $1"
-    ((WARN++))
+    ((++WARN))
 }
 
 check_fail() {
     echo -e "${RED}✗${NC} $1"
-    ((FAIL++))
+    ((++FAIL))
 }
 
 # =============================================================================
@@ -209,6 +209,8 @@ validate_project() {
     echo "Documentation"
     echo "─────────────"
     check_file_exists "README.md" "required" "README.md"
+    check_file_exists "AGENT.md" "recommended" "AGENT.md"
+    check_file_exists "SCRATCHPAD.md" "recommended" "SCRATCHPAD.md"
     check_file_exists "docs/PROJECT.md" "recommended" "docs/PROJECT.md"
     check_file_exists "docs/ARCHITECTURE.md" "recommended" "docs/ARCHITECTURE.md"
     check_file_exists "docs/SETUP.md" "recommended" "docs/SETUP.md"

@@ -35,12 +35,12 @@ print_header() {
 
 check_pass() {
     echo -e "${GREEN}✓${NC} $1"
-    ((PASS++))
+    ((++PASS))
 }
 
 check_fail() {
     echo -e "${RED}✗${NC} $1"
-    ((FAIL++))
+    ((++FAIL))
 }
 
 check_warn() {

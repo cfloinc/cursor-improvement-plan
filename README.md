@@ -14,7 +14,7 @@ The Cursor Starter Loop is a collection of guidelines, templates, skills, and to
 - **Agent Learning**: SCRATCHPAD.md template for session-over-session improvement
 - **Reusable Skills**: Interactive workflows for common tasks
 - **Project Templates**: Documentation and configuration templates
-- **Stack-Specific Rules**: Pre-configured rules for Python, Node, Next.js, Laravel
+- **Stack-Specific Rules**: Pre-configured rules for Python, Node, Next.js, Laravel, Swift
 - **Shell Tools**: Scripts for initialization, validation, and health checks
 
 ---
@@ -52,6 +52,8 @@ Or add the starter loop to your Cursor context by referencing it:
 cursor-starter-loop/
 ├── AGENT.md                    # Smart entry point for AI agents
 ├── README.md                   # This file
+├── START.md                    # Drop-in bootstrapper for new projects
+├── SCRATCHPAD.md               # Agent self-learning log
 │
 ├── core/                       # Essential principles
 │   ├── COMMANDMENTS.md         # The 10 Commandments
@@ -77,7 +79,8 @@ cursor-starter-loop/
 │   │   ├── python/
 │   │   ├── node/
 │   │   ├── nextjs/
-│   │   └── laravel/
+│   │   ├── laravel/
+│   │   └── swift/
 │   ├── ci/                     # CI/CD templates
 │   └── devcontainer/           # Dev container config
 │
@@ -111,7 +114,9 @@ cursor-starter-loop/
 - Modifying database schemas
 - Altering CI/CD pipelines
 - Refactoring core architecture
+- Adding dependencies with security implications
 - Any irreversible operation
+- Force pushing to any branch
 
 ---
 

@@ -87,25 +87,25 @@ cp ~/Cursor/cursor-starter-loop/core/COMMANDMENTS.md .cursor/rules/core.md
 ```bash
 git init
 git add .
-git commit -m "chore: initial project setup from Cursor Starter Kit"
+git commit -m "chore: initial project setup from Cursor Starter Loop"
 ```
 
 ### 6. Customize Templates
 
 Replace placeholders in the copied files:
-- `[Project Name]` → actual project name (ask user if not obvious)
-- `YYYY-MM-DD` → today's date
+- `[Project Name]` -> actual project name (ask user if not obvious)
+- `YYYY-MM-DD` -> today's date
 
 ### 7. Report What Was Created
 
 Tell the user:
 ```
-✓ Project structure created
-✓ AGENT.md copied (your AI reference guide)
-✓ SCRATCHPAD.md created (agent self-learning log)
-✓ Documentation templates in docs/
-✓ Stack rules in .cursor/rules/
-✓ Git initialized
+Done! Project structure created:
+  - AGENT.md (your AI reference guide)
+  - SCRATCHPAD.md (agent self-learning log)
+  - Documentation templates in docs/
+  - Stack rules in .cursor/rules/
+  - Git initialized
 
 Next steps:
 1. Fill in docs/PROJECT.md with your project details
@@ -122,37 +122,15 @@ rm START.md
 
 ---
 
-## The 10 Commandments (Quick Reference)
-
-1. **Read before writing** — Understand existing code first
-2. **Small commits, often** — One logical change per commit
-3. **Document the "why"** — Comments explain reasoning
-4. **Test your changes** — Run tests before committing
-5. **Ask before breaking changes** — Get approval for architecture/auth/DB/CI
-6. **Use conventional commits** — `feat:`, `fix:`, `docs:`, etc.
-7. **Keep secrets out of git** — Use `.env`, verify `.gitignore`
-8. **Update docs with code** — Keep them in sync
-9. **Progress over perfection** — Ship, then iterate
-10. **Communicate blockers early** — Don't spin; ask
-
----
-
-## Credentials
-
-For any external service, read: `~/.cursor/credentials/UNIVERSAL_ACCESS.md`
-
-```bash
-# 1Password CLI
-eval $(op signin)
-op item get "Item Name" --vault Cursor --fields credential
-```
-
----
-
 ## Full Reference
 
-After setup, read `AGENT.md` for complete guidelines.
+After setup, read `AGENT.md` for complete guidelines including:
+- The 10 Commandments
+- Guardrails (stop-and-ask rules)
+- Credential management via 1Password
+- Development workflow
+- Self-improvement loop
 
 ---
 
-*Cursor Starter Kit v3.0 — https://github.com/cfloinc/cursor-starter-kit*
+*Cursor Starter Loop v3.0 — https://github.com/cfloinc/cursor-starter-loop*

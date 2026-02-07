@@ -1,8 +1,6 @@
 # Docker Compose for local development
 # Copy to project root as docker-compose.yml
 
-version: '3.8'
-
 services:
   # =============================================================================
   # Application (uncomment and customize for your stack)

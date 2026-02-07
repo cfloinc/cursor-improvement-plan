@@ -134,6 +134,14 @@ copy_core_templates() {
         "project/.gitignore.template:.gitignore"
         "project/SCRATCHPAD.md.template:SCRATCHPAD.md"
     )
+
+    # Copy AGENT.md (the main agent reference file)
+    if [[ -f "$STARTER_DIR/AGENT.md" ]]; then
+        cp "$STARTER_DIR/AGENT.md" "$TARGET_DIR/AGENT.md"
+        print_success "Created AGENT.md"
+    else
+        print_warning "AGENT.md not found in starter loop"
+    fi
     
     for template in "${templates[@]}"; do
         local src="${template%%:*}"
@@ -237,6 +245,96 @@ EOF
     fi
 }
 
+create_dependency_files() {
+    print_info "Creating dependency files for $STACK..."
+
+    case "$STACK" in
+        python)
+            if [[ ! -f "$TARGET_DIR/requirements.txt" ]]; then
+                cat > "$TARGET_DIR/requirements.txt" << 'EOF'
+# Core dependencies
+# Add your project dependencies here
+
+# Development
+pytest>=7.0
+ruff>=0.4
+black>=24.0
+mypy>=1.0
+EOF
+                print_success "Created requirements.txt"
+            fi
+            ;;
+        node)
+            if [[ ! -f "$TARGET_DIR/package.json" ]]; then
+                cat > "$TARGET_DIR/package.json" << EOF
+{
+  "name": "$PROJECT_NAME",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Add dev script'",
+    "build": "echo 'Add build script'",
+    "test": "echo 'Add test script'",
+    "lint": "echo 'Add lint script'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+EOF
+                print_success "Created package.json"
+            fi
+            ;;
+        nextjs)
+            if [[ ! -f "$TARGET_DIR/package.json" ]]; then
+                cat > "$TARGET_DIR/package.json" << EOF
+{
+  "name": "$PROJECT_NAME",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+EOF
+                print_success "Created package.json"
+            fi
+            ;;
+        laravel)
+            # Laravel projects are typically created via composer create-project
+            print_info "Laravel: use 'composer create-project laravel/laravel .' to scaffold"
+            ;;
+        swift)
+            if [[ ! -f "$TARGET_DIR/Package.swift" ]]; then
+                cat > "$TARGET_DIR/Package.swift" << EOF
+// swift-tools-version: 6.0
+import PackageDescription
+
+let package = Package(
+    name: "$PROJECT_NAME",
+    platforms: [
+        .macOS(.v14)
+    ],
+    products: [
+        .library(name: "$PROJECT_NAME", targets: ["$PROJECT_NAME"])
+    ],
+    dependencies: [],
+    targets: [
+        .target(name: "$PROJECT_NAME"),
+        .testTarget(name: "${PROJECT_NAME}Tests", dependencies: ["$PROJECT_NAME"])
+    ]
+)
+EOF
+                print_success "Created Package.swift"
+            fi
+            ;;
+    esac
+}
+
 replace_placeholders() {
     print_info "Customizing templates..."
     
@@ -307,6 +405,7 @@ main() {
     create_directory_structure
     copy_core_templates
     copy_stack_templates
+    create_dependency_files
     replace_placeholders
     initialize_git
     
@@ -318,9 +417,10 @@ main() {
     echo "Next steps:"
     echo "  1. cd $TARGET_DIR"
     echo "  2. Fill in docs/PROJECT.md with project details"
-    echo "  3. Review .cursor/rules/"
-    echo "  4. Set up development environment"
-    echo "  5. Run: cursor ."
+    echo "  3. Review and customize AGENT.md for your project"
+    echo "  4. Review .cursor/rules/"
+    echo "  5. Set up development environment"
+    echo "  6. Run: cursor ."
     echo ""
     
     if [[ "$STACK" != "generic" ]]; then
@@ -331,7 +431,11 @@ main() {
                 echo "  source venv/bin/activate"
                 echo "  pip install -r requirements.txt"
                 ;;
-            node|nextjs)
+            node)
+                echo "  npm install"
+                echo "  npm run dev"
+                ;;
+            nextjs)
                 echo "  npm install"
                 echo "  npm run dev"
                 ;;

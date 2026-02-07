@@ -1,7 +1,7 @@
 # Python Project Rules
 
 ## Stack
-- Python 3.11+
+- Python 3.12+
 - Framework: FastAPI / Django / Flask (customize)
 - Package Manager: pip / poetry / uv
 

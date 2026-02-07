@@ -1,8 +1,8 @@
 # Next.js Project Rules
 
 ## Stack
-- Next.js 14+ (App Router)
-- React 18+
+- Next.js 15+ (App Router)
+- React 19+
 - TypeScript 5.x
 - Styling: Tailwind CSS
 

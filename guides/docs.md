@@ -12,15 +12,27 @@ Code shows what happens; documentation explains why it was built this way.
 
 ---
 
-## .cursorrules Best Practices
+## .cursor/rules/ Best Practices
 
-Your AI rules file is your highest-leverage documentation artifact.
+Your AI rules are your highest-leverage documentation artifact. Use the
+`.cursor/rules/` folder to organize rules by concern.
+
+### Folder Structure
+
+```
+.cursor/rules/
+├── core.md           # Project-wide rules (always applied)
+├── api.md            # Rules for API development
+├── frontend.md       # Rules for frontend code
+├── testing.md        # Rules for writing tests
+└── database.md       # Rules for DB operations
+```
 
 ### The Self-Improvement Loop
 
 After every correction from the user:
 
-> "Update your .cursorrules so you don't make that mistake again."
+> "Update `.cursor/rules/` so you don't make that mistake again."
 
 The AI is excellent at writing rules for itself. Let it.
 
@@ -49,19 +61,6 @@ The AI is excellent at writing rules for itself. Let it.
 ## Common Mistakes (Don't Repeat)
 - Always null-check user.profile before accessing nested props
 - The payment webhook expects amount in cents, not dollars
-```
-
-### Using .cursor/rules/ Folder
-
-For larger projects, use multiple rule files:
-
-```
-.cursor/rules/
-├── core.md           # Project-wide rules (always applied)
-├── api.md            # Rules for API development
-├── frontend.md       # Rules for frontend code
-├── testing.md        # Rules for writing tests
-└── database.md       # Rules for DB operations
 ```
 
 ---
