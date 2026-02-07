@@ -11,6 +11,7 @@ The Cursor Starter Loop is a collection of guidelines, templates, skills, and to
 
 - **Core Principles**: The 10 Commandments and Guardrails for safe agent behavior
 - **Smart Entry Point**: AGENT.md with context-based routing
+- **Agent Learning**: SCRATCHPAD.md template for session-over-session improvement
 - **Reusable Skills**: Interactive workflows for common tasks
 - **Project Templates**: Documentation and configuration templates
 - **Stack-Specific Rules**: Pre-configured rules for Python, Node, Next.js, Laravel
@@ -71,7 +72,7 @@ cursor-starter-loop/
 │   └── sync-credentials/       # Credential verification
 │
 ├── templates/                  # Project templates
-│   ├── project/                # Core documentation templates
+│   ├── project/                # Core documentation templates (incl. SCRATCHPAD)
 │   ├── stacks/                 # Stack-specific rules
 │   │   ├── python/
 │   │   ├── node/
@@ -225,6 +226,7 @@ Available templates:
 - `DECISIONS.md.template` — Architecture decision records
 - `CHANGELOG.md.template` — Version history
 - `README.md.template` — Quick start
+- `SCRATCHPAD.md.template` — Agent self-learning log
 - `.gitignore.template` — Git ignore patterns
 
 ### Stack-Specific Rules
@@ -267,10 +269,16 @@ cp ~/Cursor/cursor-starter-loop/templates/devcontainer/devcontainer.json .devcon
 
 The most powerful pattern: make the AI improve its own rules.
 
+### After Every Session
+
+Update `SCRATCHPAD.md` with a session log entry covering mistakes, corrections,
+what worked, what didn't, and what the user liked. Run the Learning Framework to
+update Active Rules.
+
 ### After Every Correction
 
 When the user corrects you, end with:
-> "I'll update .cursor/rules/ so I don't make that mistake again."
+> "I'll update .cursor/rules/ and SCRATCHPAD.md so I don't make that mistake again."
 
 ### After Every PR
 
@@ -281,10 +289,11 @@ Update `docs/notes/YYYY-MM-DD-topic.md` with:
 
 ### Weekly
 
-Review `.cursor/rules/`:
+Review `.cursor/rules/` and `SCRATCHPAD.md`:
 - Remove rules that aren't triggered
 - Strengthen rules that keep breaking
 - Consolidate duplicates
+- Rotate Active Rules in the scratchpad
 
 ---
 
@@ -344,6 +353,7 @@ To improve the Starter Loop:
 | File | Purpose |
 |------|---------|
 | `AGENT.md` | Smart entry point for AI agents |
+| `templates/project/SCRATCHPAD.md.template` | Agent self-learning log template |
 | `core/COMMANDMENTS.md` | The 10 Commandments |
 | `core/GUARDRAILS.md` | Stop and ask rules |
 | `core/CREDENTIALS.md` | Credential management |

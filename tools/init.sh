@@ -132,6 +132,7 @@ copy_core_templates() {
         "project/CHANGELOG.md.template:docs/CHANGELOG.md"
         "project/README.md.template:README.md"
         "project/.gitignore.template:.gitignore"
+        "project/SCRATCHPAD.md.template:SCRATCHPAD.md"
     )
     
     for template in "${templates[@]}"; do

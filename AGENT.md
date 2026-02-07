@@ -7,6 +7,23 @@
 
 ---
 
+## Scratchpad: Agent Self-Learning Log
+
+> **At the end of every session, update `SCRATCHPAD.md`** in the project root.
+
+The scratchpad tracks your mistakes, user corrections, what worked, what didn't,
+and user preferences. It is NOT a replacement for this file -- AGENT.md remains
+the system-of-record for hosts, secrets, services, infrastructure, and project
+context. The scratchpad is strictly for learning and behavioral improvement.
+
+**At session start**: Read `SCRATCHPAD.md` (especially Quick Reference and
+Active Rules) before doing anything else.
+
+**At session end**: Add a session log entry and update rolling sections as
+needed.
+
+---
+
 ## Quick Navigation
 
 **What are you trying to do?**
@@ -341,10 +358,22 @@ git worktree remove ../project-feature
 
 > The most powerful pattern: make the AI improve its own rules.
 
+### After Every Session
+
+Update `SCRATCHPAD.md` with:
+- What you got wrong
+- What the user corrected
+- What worked and what didn't
+- What the user liked
+- Actionable changes for next session
+
+Then run the Learning Framework (Observe, Classify, Decide, Apply, Review)
+to update Active Rules.
+
 ### After Every Correction
 
 When the user corrects you, end with:
-> "I'll update .cursor/rules/ so I don't make that mistake again."
+> "I'll update .cursor/rules/ and SCRATCHPAD.md so I don't make that mistake again."
 
 ### After Every PR
 
@@ -355,10 +384,11 @@ Update `docs/notes/YYYY-MM-DD-topic.md` with:
 
 ### Weekly
 
-Review `.cursor/rules/`:
+Review `.cursor/rules/` and `SCRATCHPAD.md`:
 - Remove rules that aren't triggered
 - Strengthen rules that keep breaking
 - Consolidate duplicates
+- Rotate Active Rules in the scratchpad
 
 ---
 
@@ -366,6 +396,7 @@ Review `.cursor/rules/`:
 
 | Location | Purpose |
 |----------|---------|
+| `SCRATCHPAD.md` | Agent self-learning log (update every session) |
 | `~/.cursor/credentials/UNIVERSAL_ACCESS.md` | All service credentials |
 | `~/Cursor/cursor-starter-loop/` | This starter kit |
 | `~/Cursor/cursor-starter-loop/core/` | Core principles |
@@ -379,6 +410,8 @@ Review `.cursor/rules/`:
 ## Remember
 
 **DO**:
+- Read `SCRATCHPAD.md` at session start (Quick Reference + Active Rules)
+- Update `SCRATCHPAD.md` at session end
 - Read `UNIVERSAL_ACCESS.md` immediately for any external service
 - Use 1Password CLI for secrets
 - Follow the 10 Commandments

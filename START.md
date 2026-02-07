@@ -28,6 +28,9 @@ cp ~/Cursor/cursor-starter-loop/templates/project/DECISIONS.md.template docs/DEC
 cp ~/Cursor/cursor-starter-loop/templates/project/CHANGELOG.md.template docs/CHANGELOG.md
 cp ~/Cursor/cursor-starter-loop/templates/project/README.md.template README.md
 cp ~/Cursor/cursor-starter-loop/templates/project/.gitignore.template .gitignore
+
+# Copy agent self-learning scratchpad
+cp ~/Cursor/cursor-starter-loop/templates/project/SCRATCHPAD.md.template SCRATCHPAD.md
 ```
 
 ### 3. Create .env.example
@@ -99,6 +102,7 @@ Tell the user:
 ```
 ✓ Project structure created
 ✓ AGENT.md copied (your AI reference guide)
+✓ SCRATCHPAD.md created (agent self-learning log)
 ✓ Documentation templates in docs/
 ✓ Stack rules in .cursor/rules/
 ✓ Git initialized
