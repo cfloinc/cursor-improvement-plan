@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Cursor Starter Loop - Health Check Script
+# Cursor Improvement Plan - Health Check Script
 # =============================================================================
 # Usage: ./health-check.sh
 #
@@ -146,23 +146,24 @@ check_credentials_file() {
     echo ""
 }
 
-check_starter_loop() {
-    echo "Starter Loop"
-    echo "────────────"
+check_improvement_plan() {
+    echo "Improvement Plan"
+    echo "────────────────"
     
-    local starter_dir="$HOME/Cursor/cursor-starter-loop"
+    local improve_dir="$HOME/Cursor/cursor-improvement-plan"
     
-    if [[ -d "$starter_dir" ]]; then
-        check_pass "Starter Loop directory exists"
+    if [[ -d "$improve_dir" ]]; then
+        check_pass "Improvement Plan directory exists"
         
         # Check key files
-        [[ -f "$starter_dir/AGENT.md" ]] && check_pass "AGENT.md exists" || check_warn "AGENT.md missing"
-        [[ -d "$starter_dir/core" ]] && check_pass "core/ exists" || check_warn "core/ missing"
-        [[ -d "$starter_dir/skills" ]] && check_pass "skills/ exists" || check_warn "skills/ missing"
-        [[ -d "$starter_dir/templates" ]] && check_pass "templates/ exists" || check_warn "templates/ missing"
+        [[ -f "$improve_dir/AGENT.md" ]] && check_pass "AGENT.md exists" || check_warn "AGENT.md missing"
+        [[ -f "$improve_dir/IMPROVEMENT.md" ]] && check_pass "IMPROVEMENT.md exists" || check_warn "IMPROVEMENT.md missing"
+        [[ -d "$improve_dir/core" ]] && check_pass "core/ exists" || check_warn "core/ missing"
+        [[ -d "$improve_dir/skills" ]] && check_pass "skills/ exists" || check_warn "skills/ missing"
+        [[ -d "$improve_dir/templates" ]] && check_pass "templates/ exists" || check_warn "templates/ missing"
     else
-        check_warn "Starter Loop not at expected location"
-        print_info "Expected at: $starter_dir"
+        check_warn "Improvement Plan not at expected location"
+        print_info "Expected at: $improve_dir"
     fi
     echo ""
 }
@@ -231,7 +232,7 @@ print_summary() {
 # =============================================================================
 
 main() {
-    print_header "Cursor Starter Loop - Health Check"
+    print_header "Cursor Improvement Plan - Health Check"
     
     echo "Date: $(date '+%Y-%m-%d %H:%M:%S')"
     echo "Host: $(hostname)"
@@ -240,7 +241,7 @@ main() {
     check_1password_cli
     check_git_access
     check_credentials_file
-    check_starter_loop
+    check_improvement_plan
     check_common_tools
     
     print_summary

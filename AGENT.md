@@ -1,8 +1,8 @@
 # AGENT START HERE
 
-> **Version**: 3.0 | **Last Updated**: 2026-02-01
+> **Version**: 4.0 | **Last Updated**: 2026-02-07
 >
-> Drop this file into any Cursor project to bootstrap agent workflows.
+> Drop this file into any Cursor project to upgrade agent workflows.
 > Smart routing gets you to the right section fast.
 
 ---
@@ -30,7 +30,7 @@ needed.
 
 | Task | Go To |
 |------|-------|
-| Start a new project | [Project Setup](#project-setup) |
+| Improve/upgrade this project | [Project Improvement](#project-improvement) |
 | Access credentials/secrets | [Credentials](#credentials) |
 | Make code changes | [Development Workflow](#development-workflow) |
 | Debug an issue | [Troubleshooting](#troubleshooting) |
@@ -120,46 +120,55 @@ op item get "DigitalOcean API Token" --vault Cursor --fields credential --reveal
 
 ---
 
-## Project Setup
+## Project Improvement
 
-### New Project (Empty Directory)
+### Upgrade an Existing Project
 
 Use the interactive skill:
 ```
-@project-init
+@project-improve
 ```
 
-Or manually:
+Or use the improvement script:
 ```bash
-# Run the init script
-~/Cursor/cursor-starter-loop/tools/init.sh [project-name] [stack]
-
-# Available stacks: generic, python, node, nextjs, laravel
+~/Cursor/cursor-improvement-plan/tools/improve.sh [path]
 ```
 
-### Existing Project (Add Starter Loop)
+Or drop `IMPROVEMENT.md` into the project and read it:
+```
+@IMPROVEMENT.md
+```
 
-1. Check for existing documentation:
-   ```bash
-   ls docs/ README.md .env.example .cursorrules 2>/dev/null
-   ```
+### What Gets Improved
 
-2. If missing docs, create structure:
-   ```bash
-   mkdir -p docs/tasks docs/notes
-   ```
+The improvement workflow audits the current project and non-destructively adds
+anything that's missing:
 
-3. Copy relevant templates:
-   ```bash
-   cp ~/Cursor/cursor-starter-loop/templates/project/*.template docs/
-   # Rename .template files and fill in
-   ```
+| Component | What's Checked | What's Added If Missing |
+|-----------|---------------|------------------------|
+| `docs/` | Directory and core doc files | PROJECT.md, ARCHITECTURE.md, SETUP.md, DECISIONS.md, CHANGELOG.md |
+| `docs/tasks/` | Directory | Empty directory for task tracking |
+| `docs/notes/` | Directory | Empty directory for session notes |
+| `tests/` | Directory | Empty directory |
+| `.cursor/rules/` | Directory and rule files | Stack-specific rules (auto-detected) |
+| `AGENT.md` | File exists | Full agent reference guide |
+| `SCRATCHPAD.md` | File exists | Agent self-learning log |
+| `.gitignore` | File exists + security patterns | Template or appended patterns |
+| `.env.example` | File exists | Starter environment template |
 
-4. Set up project rules:
-   ```bash
-   mkdir -p .cursor/rules
-   cp ~/Cursor/cursor-starter-loop/templates/stacks/[your-stack]/*.md .cursor/rules/
-   ```
+### Non-Destructive Guarantee
+
+The improvement workflow **never**:
+- Overwrites existing files
+- Modifies existing code
+- Changes git history
+- Removes anything
+
+### After Improving
+
+1. Review any newly added `docs/` files and fill in project-specific details
+2. Review `.cursor/rules/` and customize for your project
+3. Start using `SCRATCHPAD.md` at the end of each session
 
 ---
 
@@ -186,17 +195,17 @@ Or manually:
 
 1. If you made a mistake the user corrected:
    ```
-   → Update .cursor/rules/ so you don't repeat it
+   -> Update .cursor/rules/ so you don't repeat it
    ```
 
 2. If you learned something project-specific:
    ```
-   → Add to docs/notes/YYYY-MM-DD-topic.md
+   -> Add to docs/notes/YYYY-MM-DD-topic.md
    ```
 
 3. If behavior changed:
    ```
-   → Update relevant documentation
+   -> Update relevant documentation
    ```
 
 ---
@@ -217,10 +226,10 @@ Run before every commit:
 
 ```bash
 # Validate project follows conventions
-~/Cursor/cursor-starter-loop/tools/validate.sh .
+~/Cursor/cursor-improvement-plan/tools/validate.sh .
 
 # Health check (credentials, git access)
-~/Cursor/cursor-starter-loop/tools/health-check.sh
+~/Cursor/cursor-improvement-plan/tools/health-check.sh
 ```
 
 ---
@@ -318,7 +327,7 @@ git commit -m "fix(scope): description
 
 ### Clone Repositories
 
-**Bitbucket (HTTPS — preferred for agents)**:
+**Bitbucket (HTTPS -- preferred for agents)**:
 ```bash
 git clone https://cfloinc:$(op item get "Bitbucket (cfloinc)" --vault Cursor --fields "App Password")@bitbucket.org/cfloinc/<repo>.git
 ```
@@ -398,12 +407,12 @@ Review `.cursor/rules/` and `SCRATCHPAD.md`:
 |----------|---------|
 | `SCRATCHPAD.md` | Agent self-learning log (update every session) |
 | `~/.cursor/credentials/UNIVERSAL_ACCESS.md` | All service credentials |
-| `~/Cursor/cursor-starter-loop/` | This starter kit |
-| `~/Cursor/cursor-starter-loop/core/` | Core principles |
-| `~/Cursor/cursor-starter-loop/guides/` | Detailed guides |
-| `~/Cursor/cursor-starter-loop/templates/` | Project templates |
-| `~/Cursor/cursor-starter-loop/skills/` | Agent skills |
-| `~/Cursor/cursor-starter-loop/tools/` | Shell scripts |
+| `~/Cursor/cursor-improvement-plan/` | The improvement plan toolkit |
+| `~/Cursor/cursor-improvement-plan/core/` | Core principles |
+| `~/Cursor/cursor-improvement-plan/guides/` | Detailed guides |
+| `~/Cursor/cursor-improvement-plan/templates/` | Project templates |
+| `~/Cursor/cursor-improvement-plan/skills/` | Agent skills |
+| `~/Cursor/cursor-improvement-plan/tools/` | Shell scripts |
 
 ---
 
@@ -425,4 +434,4 @@ Review `.cursor/rules/` and `SCRATCHPAD.md`:
 
 ---
 
-*Starter Loop v3.0 | See [README.md](README.md) for full documentation*
+*Cursor Improvement Plan v4.0 | See [README.md](README.md) for full documentation*

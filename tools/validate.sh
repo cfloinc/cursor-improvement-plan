@@ -1,11 +1,11 @@
 #!/bin/bash
 # =============================================================================
-# Cursor Starter Loop - Project Validation Script
+# Cursor Improvement Plan - Project Validation Script
 # =============================================================================
 # Usage: ./validate.sh [project-path]
 # Example: ./validate.sh ~/projects/my-app
 #
-# Checks if a project follows Starter Loop conventions.
+# Checks if a project follows Cursor Improvement Plan conventions.
 # =============================================================================
 
 set -e
@@ -259,7 +259,7 @@ print_summary() {
         echo -e "${YELLOW}Project is functional but could be improved.${NC}"
         return 0
     else
-        echo -e "${GREEN}✓ Project follows all Starter Loop conventions!${NC}"
+        echo -e "${GREEN}✓ Project follows all Cursor Improvement Plan conventions!${NC}"
         return 0
     fi
 }

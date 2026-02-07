@@ -1,6 +1,6 @@
 # Project Validation Skill
 
-> Verify a project follows Starter Loop conventions and report issues.
+> Verify a project follows Cursor Improvement Plan conventions and report issues.
 
 ---
 
@@ -19,7 +19,7 @@ Use this skill when:
 ### Step 1: Run Validation Script
 
 ```bash
-~/Cursor/cursor-starter-loop/tools/validate.sh .
+~/Cursor/cursor-improvement-plan/tools/validate.sh .
 ```
 
 ### Step 2: Manual Checks
@@ -143,7 +143,7 @@ echo "*.pem" >> .gitignore
 **Missing docs directory:**
 ```bash
 mkdir -p docs/tasks docs/notes
-cp ~/Cursor/cursor-starter-loop/templates/project/*.template docs/
+cp ~/Cursor/cursor-improvement-plan/templates/project/*.template docs/
 ```
 
 **Missing .env.example:**
